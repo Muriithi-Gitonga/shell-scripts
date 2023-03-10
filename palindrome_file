@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+require 'tosh_palindrome'
+
+palindromes = File.readlines('phrases.txt').select(&:palindrome?)
+
+palindromes.each{|palindrome| puts "Palindrome detected: #{palindrome}"}
+
+File.write("palindromes.txt", palindromes.join)

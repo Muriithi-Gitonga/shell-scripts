@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+require 'tosh_palindrome'
+
+require 'open-uri'
+
+lines = URI.open('http://cdn.learnenough.com/phrases.txt').readlines.select(&:palindrome?)
+lines.each{|palindrome| puts "Palindrome detected #{palindrome}" }
+File.write('palindrome_url.txt', lines.join)
